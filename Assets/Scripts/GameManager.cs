@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour {
     public float happyScore;
     public float sadScore;
 
-    //public Text level;
-    //public Text goodScore;
-    //public Text badScore;
+    public Text level;
+    public Text goodScore;
+    public Text badScore;
 
     // Use this for initialization
     void Start () {
@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //level.text = "Happiness Level: " + happyMeter.ToString("f0");
-        //goodScore.text = "Good Score: " + happyScore.ToString();
-        //badScore.text = "Bad Score: " + sadScore.ToString();
+        level.text = "Happiness Level: " + happyMeter.ToString("f0");
+        goodScore.text = "Good Score: " + happyScore.ToString();
+        badScore.text = "Bad Score: " + sadScore.ToString();
 
         happyMeter -= Time.deltaTime / determine;
         if (happyMeter <= 0)
