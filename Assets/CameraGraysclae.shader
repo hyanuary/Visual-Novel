@@ -4,6 +4,8 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Fade("Fade",float)=0
+		_NightMode("Night Mode", float)= 0
+		_Noise("Noise", Range(-0.5,0.5)) = 0
 	}
 	SubShader
 	{
@@ -40,14 +42,24 @@
 			
 			sampler2D _MainTex;
 			float _Fade;
+			float _NightMode;
+			float _Noise;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv);
-				// just invert the colors
+				// noise vqariable
+
+				// greyscale part
 				float grey;
 				grey = (col.r + col.g + col.b)/3;
 				col.rgb = lerp(col.rgb,float3(grey,grey,grey), _Fade);
+				col.rgb = lerp(col.rgb, float3(grey, grey, grey), _Noise);
+				// Night Vision part
+				if(_NightMode>0)
+				{
+					col.rgb = grey * float3(0,1,0) * 2;
+				}
 				//col = 1 - col;
 				return col;
 			}
