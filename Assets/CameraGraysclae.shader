@@ -20,6 +20,11 @@
 			
 			#include "UnityCG.cginc"
 
+			    float rand(float2 co)
+                {
+                    return frac((sin( dot(co.xy , float2(12.345 * _Time.w, 67.890 * _Time.w) )) * 12345.67890+_Time.w));
+                }
+
 			struct appdata
 			{
 				float4 vertex : POSITION;
@@ -58,9 +63,10 @@
 				// Night Vision part
 				if(_NightMode>0)
 				{
-					col.rgb = grey * float3(0,1,0) * 2;
+					col.rgb = grey * float3(0,1,0) * 2*rand(i.uv);//(rand(i.uv)*0.4+0.8);
 				}
 				//col = 1 - col;
+				
 				return col;
 			}
 			ENDCG
