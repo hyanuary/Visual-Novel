@@ -84,6 +84,8 @@
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\DialogueParser.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Hour.cs" />
+    <Compile Include="Assets\Scripts\Sun.cs" />
     <Compile Include="Assets\Scripts\TextEffect.cs" />
   </ItemGroup>
   <ItemGroup>

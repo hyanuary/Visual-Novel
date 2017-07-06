@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
         happyMeter = 100.0f;
         happyScore = 10.0f;
         sadScore = 10.0f;
-        Camera.main.GetComponent<CameraEffect>().night = 1;
+        //Camera.main.GetComponent<CameraEffect>().night = 1;
         
     }
 	
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
         }
 
       
-        //Camera.main.GetComponent<CameraEffect>().Fade = (100 - happyMeter) / 100;
+        Camera.main.GetComponent<CameraEffect>().Fade = (100 - happyMeter) / 100;
 
     }
 }
