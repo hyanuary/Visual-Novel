@@ -1,8 +1,9 @@
-Kyle;Hey what's up;0;R
-Orien;Nothing much man;0;L
-Kyle;Oh that's cool;1;R
+Kyle;Hey what's up;
+Orien;Nothing much man;
+Kyle;Oh that's cool;
 Player;Restart:line,0;Continue:line,4
-Kyle;This is a test;1;L
-Orien;Test test test test;1;R
-Kyle;We finish the test;1;L
+Kyle;This is a test;
+Orien;Test test test test;
+Kyle;We finish the test;
 Player;Restart:line,0
+Orien;I have a cup of tea;

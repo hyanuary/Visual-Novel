@@ -10,8 +10,8 @@ public class DialogueManager : MonoBehaviour
 
     public string dialogue, characterName;
     public int lineNum;
-    int pose;
-    string position;
+    //int pose;
+    //string position;
     string[] options;
     public bool playerTalking;
     List<Button> buttons = new List<Button>();
@@ -20,34 +20,46 @@ public class DialogueManager : MonoBehaviour
     public Text nameBox;
     public GameObject choiceBox;
 
+    public InteractionObject obj;
+
     // Use this for initialization
     void Start()
     {
         dialogue = "";
         characterName = "";
-        pose = 0;
-        position = "L";
+        //pose = 0;
+        //position = "L";
         playerTalking = false;
         parser = GameObject.Find("Dialogue Parser").GetComponent<DialogueParser>();
-        lineNum = 0;
+        lineNum = obj.objID;
+   
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerTalking == false)
+        
+
+        //if (Input.GetMouseButtonDown(0) && playerTalking == false)
+        //{
+        //    ShowDialogue();
+
+        //    lineNum++;
+        //}
+        if (Input.GetKeyDown("f"))
         {
-            ShowDialogue();
+            //ShowDialogue();
+            ParseLine();
 
-            lineNum++;
+            lineNum = obj.objID;
+            
         }
-
         UpdateUI();
     }
 
     public void ShowDialogue()
     {
-        ResetImages();
+        //ResetImages();
         ParseLine();
     }
 
@@ -79,17 +91,17 @@ public class DialogueManager : MonoBehaviour
             playerTalking = false;
             characterName = parser.GetName(lineNum);
             dialogue = parser.GetContent(lineNum);
-            pose = parser.GetPose(lineNum);
-            position = parser.GetPosition(lineNum);
-            DisplayImages();
+            //pose = parser.GetPose(lineNum);
+            //position = parser.GetPosition(lineNum);
+            //DisplayImages();
         }
         else
         {
             playerTalking = true;
             characterName = "";
             dialogue = "";
-            pose = 0;
-            position = "";
+            //pose = 0;
+            //position = "";
             options = parser.GetOptions(lineNum);
             CreateButtons();
         }
@@ -112,40 +124,40 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void ResetImages()
-    {
-        if (characterName != "")
-        {
-            GameObject character = GameObject.Find(characterName);
-            SpriteRenderer currSprite = character.GetComponent<SpriteRenderer>();
-            currSprite.sprite = null;
-        }
-    }
+    //void ResetImages()
+    //{
+    //    if (characterName != "")
+    //    {
+    //        GameObject character = GameObject.Find(characterName);
+    //        SpriteRenderer currSprite = character.GetComponent<SpriteRenderer>();
+    //        currSprite.sprite = null;
+    //    }
+    //}
 
-    void DisplayImages()
-    {
-        if (characterName != "")
-        {
-            GameObject character = GameObject.Find(characterName);
+    //void DisplayImages()
+    //{
+    //    if (characterName != "")
+    //    {
+    //        GameObject character = GameObject.Find(characterName);
 
-            SetSpritePositions(character);
+    //        SetSpritePositions(character);
 
-            Image currSprite = character.GetComponent<Image>();
-            currSprite.sprite = character.GetComponent<Character>().characterPoses[pose];
-        }
-    }
+    //        Image currSprite = character.GetComponent<Image>();
+    //        currSprite.sprite = character.GetComponent<Character>().characterPoses[pose];
+    //    }
+    //}
 
 
-    void SetSpritePositions(GameObject spriteObj)
-    {
-        if (position == "L")
-        {
-            spriteObj.transform.position = new Vector3(-6, 0);
-        }
-        else if (position == "R")
-        {
-            spriteObj.transform.position = new Vector3(6, 0);
-        }
-        spriteObj.transform.position = new Vector3(spriteObj.transform.position.x, spriteObj.transform.position.y, 0);
-    }
+    //void SetSpritePositions(GameObject spriteObj)
+    //{
+    //    if (position == "L")
+    //    {
+    //        spriteObj.transform.position = new Vector3(-6, 0);
+    //    }
+    //    else if (position == "R")
+    //    {
+    //        spriteObj.transform.position = new Vector3(6, 0);
+    //    }
+    //    spriteObj.transform.position = new Vector3(spriteObj.transform.position.x, spriteObj.transform.position.y, 0);
+    //}
 }
