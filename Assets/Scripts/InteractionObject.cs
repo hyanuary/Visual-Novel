@@ -9,7 +9,7 @@ public class InteractionObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        objID = 8;
+        
 		
 	}
 	

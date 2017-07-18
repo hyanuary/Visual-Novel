@@ -31,29 +31,31 @@ public class DialogueManager : MonoBehaviour
         //position = "L";
         playerTalking = false;
         parser = GameObject.Find("Dialogue Parser").GetComponent<DialogueParser>();
-        lineNum = obj.objID;
+        lineNum = 0;
    
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
-        //if (Input.GetMouseButtonDown(0) && playerTalking == false)
-        //{
-        //    ShowDialogue();
-
-        //    lineNum++;
-        //}
-        if (Input.GetKeyDown("f"))
+        // interacting when a trigger is being called
+        if (Input.GetMouseButtonDown(0) && playerTalking == false)
         {
-            //ShowDialogue();
-            ParseLine();
+            ShowDialogue();
 
-            lineNum = obj.objID;
-            
+            lineNum++;
         }
+
+        // is when interact with an object
+        //if (Input.GetKeyDown("f"))
+        //{
+        //    //ShowDialogue();
+        //    ParseLine();
+
+        //    lineNum = obj.objID;
+
+        //}
         UpdateUI();
     }
 

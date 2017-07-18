@@ -66,10 +66,10 @@ public class DialogueParser : MonoBehaviour
                     if (lineData[0] == "Player")
                     {
                         DialogueLine lineEntry = new DialogueLine(lineData[0], ""/*, 0, ""*/);
-                        lineEntry.options = new string[lineData.Length+1];
+                        lineEntry.options = new string[lineData.Length - 1];
                         for (int i = 1; i < lineData.Length; i++)
                         {
-                            lineEntry.options[i + 1] = lineData[i];
+                            lineEntry.options[i - 1] = lineData[i];
                         }
                         lines.Add(lineEntry);
                     }
