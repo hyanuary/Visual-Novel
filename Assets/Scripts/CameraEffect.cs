@@ -7,6 +7,8 @@ public class CameraEffect : MonoBehaviour {
     public float Fade = 0;
     public float night = 0;
     public float noise = 0;
+    [Range(0.0f,1.0f)]
+    public float rate = 0f;
     // Use this for initialization
     void Start () {
 		
@@ -17,6 +19,7 @@ public class CameraEffect : MonoBehaviour {
         mat.SetFloat("_Fade", Fade);
         mat.SetFloat("_NightMode", night);
         mat.SetFloat("_Noise", noise);
+        mat.SetFloat("_Rate", rate);
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)

@@ -5,6 +5,7 @@
 		_MainTex ("Texture", 2D) = "white" {}
 		_Fade("Fade",float)=0
 		_NightMode("Night Mode", float)= 0
+		_Rate("Amt original color", Range(0.0,1.0)) = 1.0
 	}
 	SubShader
 	{
@@ -47,7 +48,7 @@
 			sampler2D _MainTex;
 			float _Fade;
 			float _NightMode;
-			
+			float _Rate;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
@@ -63,6 +64,7 @@
 				{
 					col.rgb = grey * float3(0,1,0) * 2*lightNoise;
 				}
+				col = col * _Rate;
 				//col = 1 - col;
 				
 				return col;

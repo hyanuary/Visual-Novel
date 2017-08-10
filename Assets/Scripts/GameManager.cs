@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public float happyMeter;
     public float happyScore;
     public float sadScore;
+    public float blinking;
 
     public Text level;
     public Text goodScore;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        blinking += Time.deltaTime;
 
         level.text = "Happiness Level: " + happyMeter.ToString("f0");
         goodScore.text = "Good Score: " + happyScore.ToString();
@@ -44,8 +46,9 @@ public class GameManager : MonoBehaviour {
             happyMeter -= sadScore;
         }
 
-      
-        Camera.main.GetComponent<CameraEffect>().Fade = (100 - happyMeter) / 100;
 
+        Camera.main.GetComponent<CameraEffect>().Fade = (100 - happyMeter) / 100;
+        if(happyMeter <=20)
+        Camera.main.GetComponent<CameraEffect>().rate = Mathf.Clamp(Mathf.Abs(Mathf.Sin(blinking)),0.3f,1.0f);
     }
 }
