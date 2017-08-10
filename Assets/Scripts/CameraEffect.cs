@@ -8,7 +8,7 @@ public class CameraEffect : MonoBehaviour {
     public float night = 0;
     public float noise = 0;
     [Range(0.0f,1.0f)]
-    public float rate = 0f;
+    public float rate = 1.0f;
     // Use this for initialization
     void Start () {
 		

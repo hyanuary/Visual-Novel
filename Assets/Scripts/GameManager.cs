@@ -49,6 +49,6 @@ public class GameManager : MonoBehaviour {
 
         Camera.main.GetComponent<CameraEffect>().Fade = (100 - happyMeter) / 100;
         if(happyMeter <=20)
-        Camera.main.GetComponent<CameraEffect>().rate = Mathf.Clamp(Mathf.Abs(Mathf.Sin(blinking)),0.3f,1.0f);
+        Camera.main.GetComponent<CameraEffect>().rate = Mathf.Clamp(Mathf.Abs(Mathf.Sin(blinking)*0.35f+0.65f),0.3f,1.0f);
     }
 }
