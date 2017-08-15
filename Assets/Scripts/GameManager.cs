@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public float happyScore;
     public float sadScore;
     public float blinking;
+    public float howFast;
 
     public Text level;
     public Text goodScore;
@@ -46,9 +47,11 @@ public class GameManager : MonoBehaviour {
             happyMeter -= sadScore;
         }
 
-
         Camera.main.GetComponent<CameraEffect>().Fade = (100 - happyMeter) / 100;
         if(happyMeter <=20)
-        Camera.main.GetComponent<CameraEffect>().rate = Mathf.Clamp(Mathf.Abs(Mathf.Sin(blinking)*0.35f+0.65f),0.3f,1.0f);
+        {
+            Camera.main.GetComponent<CameraEffect>().rate = Mathf.Clamp(Mathf.Abs(Mathf.Sin(blinking * howFast) * 0.35f + 0.65f), 0.3f, 1.0f);
+        }
+       
     }
 }
