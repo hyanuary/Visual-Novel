@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     public Text nameBox;
     public GameObject choiceBox;
 
-    public InteractionObject obj;
+    
 
     // Use this for initialization
     void Start()
