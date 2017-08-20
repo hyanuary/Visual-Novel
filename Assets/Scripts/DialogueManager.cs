@@ -40,12 +40,16 @@ public class DialogueManager : MonoBehaviour
     {
 
         // interacting when a trigger is being called
-        if (Input.GetMouseButtonDown(0) && playerTalking == false)
+        if(parser.gameStart)
         {
-            ShowDialogue();
+            if (Input.GetMouseButtonDown(0) && playerTalking == false)
+            {
+                ShowDialogue();
 
-            lineNum++;
+                lineNum++;
+            }
         }
+        
 
         // is when interact with an object
         //if (Input.GetKeyDown("f"))

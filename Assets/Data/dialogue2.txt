@@ -1,0 +1,9 @@
+Kyle;Hey bro;
+Orien;You gay?;
+Kyle;Oh nah bro;
+Player;Restart:line,0;Continue:line,4
+Kyle;This is a test;
+Orien;Test test test test;
+Kyle;We finish the test;
+Player;Restart:line,0
+Orien;I have a cup of tea;

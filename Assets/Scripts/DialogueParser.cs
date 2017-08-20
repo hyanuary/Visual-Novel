@@ -9,6 +9,8 @@ using System.Collections.Generic;
 
 public class DialogueParser : MonoBehaviour
 {
+    public bool character;
+    public bool gameStart;
 
     struct DialogueLine
     {
@@ -33,21 +35,39 @@ public class DialogueParser : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        string file = "Assets/Data/Dialogue";
-        string sceneNum = EditorSceneManager.GetActiveScene().name;
-        sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
-        file += sceneNum;
-        file += ".txt";
 
-        lines = new List<DialogueLine>();
-
-        LoadDialogue(file);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameStart)
+        {
+            if (character)
+            {
+                string file = "Assets/Data/Dialogue";
+                string sceneNum = EditorSceneManager.GetActiveScene().name;
+                sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
+                file += sceneNum;
+                file += ".txt";
 
+                lines = new List<DialogueLine>();
+
+                LoadDialogue(file);
+            }
+            else
+            {
+                string file2 = "Assets/Data/Dialogue2";
+                string sceneNum = EditorSceneManager.GetActiveScene().name;
+                sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
+                file2 += sceneNum;
+                file2 += ".txt";
+
+                lines = new List<DialogueLine>();
+
+                LoadDialogue(file2);
+            }
+        }
     }
 
     void LoadDialogue(string filename)
